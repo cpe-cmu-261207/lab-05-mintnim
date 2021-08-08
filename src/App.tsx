@@ -15,7 +15,7 @@ function App() {
     <div>
 
       {/* header section */}
-        <Headerr title={"Minimal Todo List"} name={"Sasiphol Techamanokul 630610763"}></Headerr>
+        <Headerr title={"Minimal Todo List!"} name={"Sasiphol Techamanokul 630610763"}></Headerr>
 
       {/* todo section */}
       <Todoo></Todoo>
