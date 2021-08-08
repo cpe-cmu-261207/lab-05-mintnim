@@ -1,6 +1,6 @@
-import {useState} from 'react'
-import React from 'react'
-import Task from 'Task'
+import {useState} from 'react';
+import React from 'react';
+import Task from './Task';
 
 type propsTodoo = {
     id: number;
@@ -17,48 +17,36 @@ const Todoo = () => {
     }
   
     const addTask = (taskName: string) => {
-      const newId = (new Date()).getTime()
-      const newTasks = [...tasks, {id: newId, name: taskName}]
-  
-      setTasks(newTasks)
+      if(curTask === ""){
+        alert("Task cannot be empty!")
+      }else{
+        const newId = (new Date()).getTime()
+        const newTasks = [...tasks, {id: newId, name: taskName}]
+        setTasks(newTasks)
+      }
     }
   
     const deleteTask = (id: number) => {
       const newTasks = tasks.filter(x => x.id !== id)
       setTasks(newTasks)
     }
+
+    const doneTask = (id: number) => {
+      const doneTasks = tasks.filter(x => x.id !== id)
+      setTasks(doneTasks)
+    }
   
     return (
-      <div style={{backgroundColor: 'yellow'}}>
-        <h3> React todo list</h3> 
-        <input onChange={onChangeCallback}></input>
-        <button onClick={() => addTask(curTask)}>Add Task</button>
-        {tasks.map( x => <Task id={x.id} name={x.name} deleteFn={deleteTask}/>)}
+      <div className='space-x-1 px-24'>
+        <div className='flex'>
+        <input className='border border-gray-400 w-full text-2xl' onChange={onChangeCallback}></input>
+        <button className='border border-gray-400 w-8 font-bold' onClick={() => addTask(curTask)}>+</button>
+        </div>
+        <div>
+          {tasks.map( x => <Task id={x.id} name={x.name} deleteFn={deleteTask} doneFn={doneTask}/>)}
+        </div>
       </div>
     )
   }
   
   export default Todoo
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // const Todoo =  (props: propsTodoo) => {
-//     return (
-//         <div className='mx-auto max-w-4xl'>
-//             <span className='text-center italic my-2 text-2xl'>{props.list}</span>
-//         </div>
-//     )
-// }
-
-// export default Todoo
