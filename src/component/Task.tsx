@@ -17,7 +17,7 @@ const Task =  ({id, name, deleteFn, doneFn} : propsTask) => {
         {isShown && (
           <div className="flex space-x-1 items-center px-2">
             <button onClick={ () => deleteFn(id) } className="bg-red-400 w-24 text-2xl" >Delete</button>
-            <button onClick={ () => doneFn(id) } className="bg-green-400 w-24 text-2xl" >Done</button>
+            <button onClick={ () => doneFn(id, name) } className="bg-green-400 w-24 text-2xl" >Done</button>
           </div>
       )}
       </div>

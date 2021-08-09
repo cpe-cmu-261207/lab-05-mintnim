@@ -6,11 +6,6 @@ import Footerr from './component/Footerr';
 
 function App() {
 
-  // const onKeyDownCallback = (ev: React.KeyboardEvent<HTMLInputElement>) => {
-  //   /* check pressing enter key here */
-    
-  // }
-
   return (
     <div>
 
